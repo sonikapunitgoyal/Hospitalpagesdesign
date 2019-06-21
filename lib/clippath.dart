@@ -119,7 +119,7 @@ class WavyHeaderImageState extends State<WavyHeaderImage> {
                   )),
             ),
              Padding(
-               padding:const EdgeInsets.only(top: 350.0,left: 07.0,right: 30.0,),
+               padding:const EdgeInsets.only(top: 340.0,left: 07.0,right: 30.0,),
                child: Container(
                 width: MediaQuery.of(context).size.width*0.54,
                   height: MediaQuery.of(context).size.height*0.35,
@@ -146,7 +146,7 @@ class WavyHeaderImageState extends State<WavyHeaderImage> {
             ),
              ),
             Padding(
-              padding: const EdgeInsets.only(top: 380.0,left: 220.0,right: 30.0,),
+              padding: const EdgeInsets.only(top: 370.0,left: 220.0,right: 30.0,),
               child: Container(
                  width: MediaQuery.of(context).size.width*0.40,
                   height: MediaQuery.of(context).size.height*0.26,
