@@ -41,7 +41,7 @@ class WavyHeaderImageState extends State<WavyHeaderImage> {
             Positioned(
               left: 30.0,
               top: 70.0,
-              child: Icon(Icons.menu, color: Colors.white,size :40.0),
+              child: Image.asset('assets/hamburger.png',height:30.0 ,width: 30.0,),
               height: 60.0,
             ),
             Positioned(
