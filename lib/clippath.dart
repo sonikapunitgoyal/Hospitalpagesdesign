@@ -69,7 +69,7 @@ class WavyHeaderImageState extends State<WavyHeaderImage> {
              child: Container(
                  
                   width: MediaQuery.of(context).size.width*0.40,
-                  height: MediaQuery.of(context).size.height*0.30,
+                  height: MediaQuery.of(context).size.height*0.27,
                   child: InkWell(onTap: (){ Navigator.push(
                     context,
                     MaterialPageRoute(builder: (context) => MyApp1()),
@@ -95,7 +95,7 @@ class WavyHeaderImageState extends State<WavyHeaderImage> {
               padding: const EdgeInsets.only(top: 150.0,left: 220.0,right: 30.0,bottom: 30.0),
               child: Container(
                  width: MediaQuery.of(context).size.width*0.40,
-                  height: MediaQuery.of(context).size.height*0.30,
+                  height: MediaQuery.of(context).size.height*0.27,
                   child: Container(
                     child: Card(
                       elevation: 20.0,
@@ -122,7 +122,7 @@ class WavyHeaderImageState extends State<WavyHeaderImage> {
                padding:const EdgeInsets.only(top: 350.0,left: 07.0,right: 30.0,),
                child: Container(
                 width: MediaQuery.of(context).size.width*0.54,
-                  height: MediaQuery.of(context).size.height*0.38,
+                  height: MediaQuery.of(context).size.height*0.35,
                 padding: EdgeInsets.all(30.0),
                 child: Card(
                   elevation: 20.0,
@@ -149,7 +149,7 @@ class WavyHeaderImageState extends State<WavyHeaderImage> {
               padding: const EdgeInsets.only(top: 380.0,left: 220.0,right: 30.0,),
               child: Container(
                  width: MediaQuery.of(context).size.width*0.40,
-                  height: MediaQuery.of(context).size.height*0.30,
+                  height: MediaQuery.of(context).size.height*0.26,
                 child: Card(
                   elevation: 20.0,
                   color: Colors.white,

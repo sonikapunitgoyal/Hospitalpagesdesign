@@ -23,6 +23,7 @@ class ListPage extends StatefulWidget {
   ListPage({Key key, this.title}) : super(key: key);
 
   final String title;
+ 
 
   @override
   _ListPageState createState() => _ListPageState();
@@ -30,10 +31,7 @@ class ListPage extends StatefulWidget {
 
 class _ListPageState extends State<ListPage> {
   List lessons;
-  double _lowerValue = 200.0;
-  double _upperValue = 400.0;
-  double _lowerAge = 2.0;
-  double _upperAge = 7.0;
+ 
 
   @override
   void initState() {
@@ -49,12 +47,12 @@ class _ListPageState extends State<ListPage> {
               Expanded(
                   flex: 2,
                   child: Container(
-                    height: 150.0,
+                    height: 180.0,
                     width: 250.0,
                     decoration: BoxDecoration(
                         // borderRadius: BorderRadius.circular(15.0),
                         image: DecorationImage(
-                      fit: BoxFit.fill,
+                      fit: BoxFit.cover,
                       image: AssetImage(lesson.image),
                     )),
                     child: Stack(
@@ -84,7 +82,7 @@ class _ListPageState extends State<ListPage> {
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: <Widget>[
                             Padding(
-                              padding: const EdgeInsets.only(top: 14.0,right: 2.0),
+                              padding: const EdgeInsets.only( top: 14.0,right: 0.0),
                               child: Container(
                                 // alignment: Alignment.bottomCenter,
                                 width: 12.0,
@@ -95,14 +93,16 @@ class _ListPageState extends State<ListPage> {
                                 ),
                               ),
                             ),
-                            Container(
-                              padding: EdgeInsets.only(top: 12.0),
-                              child: Text(
-                                lesson.name,
-                                style: TextStyle(
-                                    fontSize: 20,
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.bold),
+                            Flexible(
+                                                          child: Container(
+                                padding: EdgeInsets.only(top: 12.0),
+                                child: Text(
+                                  lesson.name,
+                                  style: TextStyle(
+                                      fontSize: 20,
+                                      color: Colors.black,
+                                      fontWeight: FontWeight.bold),
+                                ),
                               ),
                             ),
                             Container(
@@ -308,9 +308,159 @@ class _ListPageState extends State<ListPage> {
           onPressed: () {
             showDialog(
               context: context,
-              builder: (BuildContext context) {
-// return object of type Dialog
-                return Stack(children: <Widget>[
+              builder: (BuildContext context) =>MyDialog()
+            );
+          },
+        )
+      ],
+    );
+    final makeBottom =   BottomAppBar(
+        child: Container(height: 90,width: MediaQuery.of(context).size.width,
+          child: Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: <Widget>[
+              Container(height: 100.0,width: 100.0,
+                child: FloatingActionButton(
+                  onPressed: (){},
+                  tooltip: 'Increment',
+                  child: Column(mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,children: <Widget>[Image.asset(
+                      'assets/home.png',
+                      height: 50.0,
+                    ),
+                    Text(
+                      "Home",
+                      style: TextStyle(fontSize: 12.0, color: Colors.white,fontWeight: FontWeight.bold),
+                    )],
+                  ),
+
+                ),
+              ),
+             Padding(
+               padding: const EdgeInsets.all(15.0),
+               child: Column(children: <Widget>[
+                Image.asset(
+                'assets/start.png',
+                height: 40.0,
+            ),Text('Favorites'),
+               ],),
+             ),
+              Padding(
+                padding: const EdgeInsets.all(15.0),
+                child: Column(children: <Widget>[
+                  Image.asset('assets/reports.png', height: 40.0), Text('Reports')
+                ],),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(15.0),
+                child: Column(children: <Widget>[
+                 Image.asset('assets/patients.png', height: 40.0),Text('Patients')
+                ],),
+              )
+            ],
+          ),
+        
+        )
+    );
+
+    return Scaffold(
+      backgroundColor: Colors.grey[100],
+      appBar: topAppBar,
+      body: makeBody,
+      bottomNavigationBar: makeBottom,
+    );
+  }
+}
+
+List getLessons() {
+  return [
+    Basic(
+        name: "Perena Vasu",
+        startPrice: 200,
+        endPrice: 500,
+        image: "assets/1.png",
+        distance: 1.3,
+        experence: 3.5,
+        specialization: "specialization1",
+        doctor: 13),
+    Basic(
+        name: "Bhumi Jain",
+        startPrice: 200,
+        endPrice: 500,
+        image: "assets/2.png",
+        distance: 1.3,
+        experence: 3.5,
+        specialization: "specialization1",
+        doctor: 13),
+    Basic(
+        name: "Anamika Khanna",
+        startPrice: 200,
+        endPrice: 500,
+        image: "assets/3.png",
+        distance: 1.3,
+        experence: 3.5,
+        specialization: "specialization1",
+        doctor: 13),
+    Basic(
+        name: "Anjali Tiwari",
+        startPrice: 200,
+        endPrice: 500,
+        image: "assets/1.png",
+        distance: 1.3,
+        experence: 3.5,
+        specialization: "specialization1",
+        doctor: 13),
+    Basic(
+        name: "Sonika Goyal",
+        startPrice: 200,
+        endPrice: 500,
+        image: "assets/2.png",
+        distance: 1.3,
+        experence: 3.5,
+        specialization: "specialization1",
+        doctor: 13),
+    Basic(
+        name: "Jyoti Sharma",
+        startPrice: 200,
+        endPrice: 500,
+        image: "assets/3.png",
+        distance: 1.3,
+        experence: 3.5,
+        specialization: "specialization1",
+        doctor: 13),
+    Basic(
+        name: "Shivani Kalra",
+        startPrice: 200,
+        endPrice: 500,
+        image: "assets/1.png",
+        distance: 1.3,
+        experence: 3.5,
+        specialization: "specialization1",
+        doctor: 13),
+  ];
+}
+class MyDialog extends StatefulWidget {
+  @override
+  _MyDialogState createState() => _MyDialogState();
+}
+
+class _MyDialogState extends State<MyDialog> {
+   double _lowerValue = 200.0;
+  double _upperValue = 400.0;
+  double _lowerAge = 2.0;
+  double _upperAge = 7.0;
+  bool isTrue=false;
+bool isTrue1=false;
+bool isTrue2=false;
+bool isTrue3=false;
+bool isTrue4=false;
+bool isTrue5=false;
+bool isTrue6=false;
+bool isTrue7=false;
+bool isTrue8=false;
+
+  @override
+  Widget build(BuildContext context) {
+    return  Stack(children: <Widget>[
                   AlertDialog(
                     content: Column(
                       mainAxisSize: MainAxisSize.min,
@@ -391,11 +541,11 @@ class _ListPageState extends State<ListPage> {
                         ),
                         Row(children: <Widget>[
                           Checkbox(
-                            value: true,
+                            value: isTrue,
                             checkColor: Colors.grey[400],
                             activeColor: Colors.grey[200],
-                            onChanged: (value) {
-                              setState(() {});
+                            onChanged: (bool value) {
+                              setState(() {isTrue=value;});
                             },
                           ),
                           Text('Certified'),
@@ -416,11 +566,11 @@ class _ListPageState extends State<ListPage> {
                           Flexible(
                             child: Row(children: <Widget>[
                               Checkbox(
-                                value: true,
+                                value: isTrue1,
                                 checkColor: Colors.grey[400],
                                 activeColor: Colors.grey[200],
-                                onChanged: (value) {
-                                  setState(() {});
+                                onChanged: (bool value) {
+                                  setState(() {isTrue1=value;});
                                 },
                               ),
                               Text('Text1'),
@@ -429,11 +579,11 @@ class _ListPageState extends State<ListPage> {
                           Flexible(
                             child: Row(children: <Widget>[
                               Checkbox(
-                                value: true,
+                                value: isTrue2,
                                 checkColor: Colors.grey[400],
                                 activeColor: Colors.grey[200],
-                                onChanged: (value) {
-                                  setState(() {});
+                                onChanged: (bool value) {
+                                  setState(() {isTrue2=value;});
                                 },
                               ),
                               Text('Text2'),
@@ -442,11 +592,11 @@ class _ListPageState extends State<ListPage> {
                           Flexible(
                             child: Row(children: <Widget>[
                               Checkbox(
-                                value: true,
+                                value: isTrue3,
                                 checkColor: Colors.grey[400],
                                 activeColor: Colors.grey[200],
-                                onChanged: (value) {
-                                  setState(() {});
+                                onChanged: (bool value) {
+                                  setState(() {isTrue3=value;});
                                 },
                               ),
                               Text('Text3'),
@@ -457,11 +607,13 @@ class _ListPageState extends State<ListPage> {
                           Flexible(
                             child: Row(children: <Widget>[
                               Checkbox(
-                                value: true,
+                                value: isTrue4,
                                 checkColor: Colors.grey[400],
-                                activeColor: Colors.grey[200],
-                                onChanged: (value) {
-                                  setState(() {});
+                                 activeColor: Colors.grey[200],
+                                onChanged: (bool value) {
+                                  setState(() {
+                                    isTrue4=value;
+                                  });
                                 },
                               ),
                               Text('Text1'),
@@ -470,11 +622,13 @@ class _ListPageState extends State<ListPage> {
                           Flexible(
                             child: Row(children: <Widget>[
                               Checkbox(
-                                value: true,
+                                value:isTrue5,
                                 checkColor: Colors.grey[400],
                                 activeColor: Colors.grey[200],
-                                onChanged: (value) {
-                                  setState(() {});
+                                onChanged: (bool val) {
+                                  setState(() {
+                                    isTrue5=val;
+                                  });
                                 },
                               ),
                               Text('Text2'),
@@ -483,11 +637,13 @@ class _ListPageState extends State<ListPage> {
                           Flexible(
                             child: Row(children: <Widget>[
                               Checkbox(
-                                value: true,
+                                value: isTrue6,
                                 checkColor: Colors.grey[400],
                                 activeColor: Colors.grey[200],
-                                onChanged: (value) {
-                                  setState(() {});
+                                onChanged: ( bool value) {
+                                  setState(() {
+                                    isTrue6=value;
+                                  });
                                 },
                               ),
                               Text('Text3'),
@@ -600,105 +756,5 @@ class _ListPageState extends State<ListPage> {
                         ),
                       ))
                 ]);
-              },
-            );
-          },
-        )
-      ],
-    );
-    final makeBottom = Container(
-      child: BottomNavigationBar(
-        items: [
-          BottomNavigationBarItem(
-            icon: Image.asset(
-              'assets/start.png',
-              height: 30.0,
-            ),
-            title: new Text('Favorites'),
-          ),
-          BottomNavigationBarItem(
-              icon: Image.asset('assets/reports.png', height: 30.0),
-              title: new Text('Reports')),
-          BottomNavigationBarItem(
-              icon: Image.asset('assets/patients.png', height: 30.0),
-              title: new Text('Patients')),
-        ],
-      ),
-    );
-
-    return Scaffold(
-      backgroundColor: Colors.grey[100],
-      appBar: topAppBar,
-      body: makeBody,
-      bottomNavigationBar: makeBottom,
-    );
   }
-}
-
-List getLessons() {
-  return [
-    Basic(
-        name: "Perena Vasu",
-        startPrice: 200,
-        endPrice: 500,
-        image: "assets/1.png",
-        distance: 1.3,
-        experence: 3.5,
-        specialization: "specialization1",
-        doctor: 13),
-    Basic(
-        name: "Bhumi Jain",
-        startPrice: 200,
-        endPrice: 500,
-        image: "assets/2.png",
-        distance: 1.3,
-        experence: 3.5,
-        specialization: "specialization1",
-        doctor: 13),
-    Basic(
-        name: "Anamika Khanna",
-        startPrice: 200,
-        endPrice: 500,
-        image: "assets/3.png",
-        distance: 1.3,
-        experence: 3.5,
-        specialization: "specialization1",
-        doctor: 13),
-    Basic(
-        name: "Anjali Tiwari",
-        startPrice: 200,
-        endPrice: 500,
-        image: "assets/4.png",
-        distance: 1.3,
-        experence: 3.5,
-        specialization: "specialization1",
-        doctor: 13),
-    Basic(
-        name: "Sonika Goyal",
-        startPrice: 200,
-        endPrice: 500,
-        image: "assets/4.png",
-        distance: 1.3,
-        experence: 3.5,
-        specialization: "specialization1",
-        doctor: 13),
-    Basic(
-        name: "Jyoti Sharma",
-        startPrice: 200,
-        endPrice: 500,
-        image: "assets/1.png",
-        distance: 1.3,
-        experence: 3.5,
-        specialization: "specialization1",
-        doctor: 13),
-    Basic(
-        name: "Shivani Kalra",
-        startPrice: 200,
-        endPrice: 500,
-        image: "assets/1.png",
-        distance: 1.3,
-        experence: 3.5,
-        specialization: "specialization1",
-        doctor: 13),
-  ];
 }

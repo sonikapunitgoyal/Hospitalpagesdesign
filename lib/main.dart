@@ -3,9 +3,7 @@ import 'package:flutter/rendering.dart';
 import 'clippath.dart';
 import 'package:flutter_statusbarcolor/flutter_statusbarcolor.dart';
 
-void main() => runApp(MyApp(
-  
-));
+void main() => runApp(MyApp());
 
 class MyApp extends StatelessWidget {
   @override
@@ -31,48 +29,76 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container( height:MediaQuery.of(context).size.height,
-              width: MediaQuery.of(context).size.width, child: WavyHeaderImage()),
-      floatingActionButton: Container(
-        height: 80.0,
-        width: 80.0,
-        child: FittedBox(
-          child: FloatingActionButton(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget>[
-                  Image.asset(
-                    'assets/home.png',
-                    height: 30.0,
+        body: Container(
+            height: MediaQuery.of(context).size.height,
+            width: MediaQuery.of(context).size.width,
+            child: WavyHeaderImage()),
+        bottomNavigationBar: BottomAppBar(
+            child: Container(
+          height: 90.0,
+          width: MediaQuery.of(context).size.width,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: <Widget>[
+               Container(height: 100.0,width: 100.0,
+                 child: FloatingActionButton(
+                    onPressed: () {},
+                    tooltip: 'Increment',
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: <Widget>[
+                        Image.asset(
+                          'assets/home.png',
+                          height: 50.0,
+                        ),
+                        Text(
+                          "Home",
+                          style: TextStyle(
+                              fontSize: 12.0,
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold),
+                        )
+                      ],
+                    ),
                   ),
-                  Text(
-                    "Home",
-                    style: TextStyle(fontSize: 8.0, color: Colors.white,fontWeight: FontWeight.bold),
-                  )
-                ],
+               ),
+              
+              Padding(padding: const EdgeInsets.all(15.0),
+                              child: Column(
+                  children: <Widget>[
+                    Image.asset(
+                      'assets/start.png',
+                      height: 40.0,
+                    ),
+                    Text('Favorites', style: TextStyle(color: Colors.grey[600])),
+                  ],
+                ),
               ),
-              onPressed: () {}),
-        ),
-      ),
-      floatingActionButtonLocation: FloatingActionButtonLocation.endDocked,
-      bottomNavigationBar: BottomNavigationBar(
-        items: [
-
-          BottomNavigationBarItem(
-            icon: Image.asset(
-              'assets/start.png',
-              height: 40.0,
-            ),
-            title: new Text('Favorites'),
+              Padding(
+                padding: const EdgeInsets.all(15.0),
+                child: Column(
+                  children: <Widget>[
+                    Image.asset('assets/reports.png', height: 40.0),
+                    Text('Reports', style: TextStyle(color: Colors.grey[600]))
+                  ],
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(15.0),
+                child: Column(
+                  children: <Widget>[
+                    Image.asset('assets/patients.png', height: 40.0),
+                    Text(
+                      'Patients',
+                      style: TextStyle(color: Colors.grey[600]),
+                    )
+                  ],
+                ),
+              )
+            ],
           ),
-          BottomNavigationBarItem(
-              icon: Image.asset('assets/reports.png', height: 40.0),
-              title: new Text('Reports')),
-          BottomNavigationBarItem(
-              icon: Image.asset('assets/patients.png', height: 40.0),
-              title: new Text('Patients')),
-        ],
-      ),
-    );
+        )));
   }
 }
