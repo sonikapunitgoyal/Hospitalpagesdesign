@@ -75,7 +75,7 @@ class WavyHeaderImageState extends State<WavyHeaderImage> {
                     MaterialPageRoute(builder: (context) => MyApp1()),
                   );},
                       child: Card(
-                    elevation: 20.0,
+                    elevation: 5.0,
                     color: Colors.white,
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
@@ -98,7 +98,7 @@ class WavyHeaderImageState extends State<WavyHeaderImage> {
                   height: MediaQuery.of(context).size.height*0.27,
                   child: Container(
                     child: Card(
-                      elevation: 20.0,
+                      elevation: 5.0,
                       color: Colors.white,
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -125,7 +125,7 @@ class WavyHeaderImageState extends State<WavyHeaderImage> {
                   height: MediaQuery.of(context).size.height*0.35,
                 padding: EdgeInsets.all(30.0),
                 child: Card(
-                  elevation: 20.0,
+                  elevation: 5.0,
                   color: Colors.white,
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
@@ -151,7 +151,7 @@ class WavyHeaderImageState extends State<WavyHeaderImage> {
                  width: MediaQuery.of(context).size.width*0.40,
                   height: MediaQuery.of(context).size.height*0.26,
                 child: Card(
-                  elevation: 20.0,
+                  elevation: 5.0,
                   color: Colors.white,
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
