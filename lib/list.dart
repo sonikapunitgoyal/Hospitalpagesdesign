@@ -45,13 +45,13 @@ class _ListPageState extends State<ListPage> {
               Expanded(
                   flex: 2,
                   child: Container(
-                    height: 180.0,
+                    height: 160.0,
                     width: 270.0,
                     decoration: BoxDecoration(
                         // borderRadius: BorderRadius.circular(15.0),
                         image: DecorationImage(
                       fit: BoxFit.cover,
-                      image: AssetImage(lesson.image),
+                      image: AssetImage(lesson.image,),
                     )),
                     child: Stack(
                       children: <Widget>[
@@ -260,12 +260,12 @@ class _ListPageState extends State<ListPage> {
             children: <Widget>[
               Expanded(
                 flex: 1,
-                child: Container(
+                child: Container(height: 50.0,
                   child: FlatButton(
                     child: ListTile(
                       leading: Image.asset(
                         "assets/call.png",
-                        height: 30.0,
+                       height: 30.0,
                       ),
                       trailing: Text('Hire Me'),
                     ),
@@ -276,13 +276,13 @@ class _ListPageState extends State<ListPage> {
               ),
               Expanded(
                 flex: 1,
-                child: Container(
+                child: Container(height: 50.0,
                   child: FlatButton(
                     child: Text('View Profile'),
                     onPressed: () {},
                     color: Colors.grey[300],
                   ),
-                  height: 57.0,
+                 
                 ),
               )
             ],
@@ -332,7 +332,7 @@ class _ListPageState extends State<ListPage> {
             shrinkWrap: true,
             itemCount: lessons.length,
             itemBuilder: (BuildContext context, int index) {
-              return makeCard(lessons[index]);
+              return Container(height: 243.0, child: makeCard(lessons[index]));
             },
           ),
         ),
@@ -500,6 +500,9 @@ class _MyDialogState extends State<MyDialog> {
   bool isTrue6 = false;
   bool isTrue7 = false;
   bool isTrue8 = false;
+  bool changeSize1=true;
+  bool changeSize2=true;
+  bool changeSize3=true;
 
   @override
   Widget build(BuildContext context) {
@@ -517,23 +520,29 @@ class _MyDialogState extends State<MyDialog> {
                 FlatButton(
                   child: Text(
                     'Reset',
-                    style: TextStyle(fontSize: 15.0),
+                    style:changeSize1? TextStyle(fontSize: 15.0):TextStyle(fontSize: 20.0),
                   ),
-                  onPressed: () {},
+                  onPressed: () {setState(() {
+                    changeSize1=!changeSize1;
+                  });},
                 ),
                 FlatButton(
                   child: Text(
                     'Filter by',
-                    style: TextStyle(fontSize: 15.0),
+                   style:changeSize2? TextStyle(fontSize: 15.0):TextStyle(fontSize: 20.0),
                   ),
-                  onPressed: () {},
+                  onPressed: () {setState(() {
+                    changeSize2=!changeSize2;
+                  });},
                 ),
                 FlatButton(
                   child: Text(
                     'Apply',
-                    style: TextStyle(fontSize: 15.0, color: Colors.blue),
+                   style:TextStyle(fontSize: 15.0,color: Colors.blue),
                   ),
-                  onPressed: () {},
+                  onPressed: () {setState(() {
+                   
+                  });},
                 ),
               ],
             ),
