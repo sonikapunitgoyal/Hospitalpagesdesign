@@ -566,7 +566,7 @@ class _MyDialogState extends State<MyDialog> {
               height: 20.0,
             ),
           SliderTheme(
-              data: SliderTheme.of(context).copyWith(activeTrackColor: Color(0xff4B88F3),inactiveTrackColor: Colors.grey[300],thumbColor: Color(0xff4B88F3),trackHeight: 3.0,inactiveTickMarkColor: Colors.grey[300]),
+              data: SliderTheme.of(context).copyWith(activeTrackColor: Color(0xff3C7FF4),inactiveTrackColor: Colors.grey[300],thumbColor: Color(0xff3C7FF4),trackHeight: 3.0,inactiveTickMarkColor: Colors.grey[300]),
              child:    RangeSlider(
               min: 0.0,
               max: 1000.0,
@@ -781,7 +781,7 @@ class _MyDialogState extends State<MyDialog> {
               data: SliderTheme.of(context).copyWith(valueIndicatorColor:Color(0xff3C7FF4) ,
          
               
-               activeTrackColor: Color(0xff3C7FF4),inactiveTrackColor: Colors.grey[300],thumbColor: Color(0xff4B88F3),trackHeight: 3.0,inactiveTickMarkColor: Colors.grey[300]),
+               activeTrackColor: Color(0xff3C7FF4),inactiveTrackColor: Colors.grey[300],thumbColor: Color(0xff3C7FF4),trackHeight: 3.0,inactiveTickMarkColor: Colors.grey[300]),
              child: RangeSlider(
                 min: 0,
                 max: 10,
