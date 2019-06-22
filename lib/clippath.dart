@@ -32,7 +32,7 @@ class WavyHeaderImageState extends State<WavyHeaderImage> {
           children: <Widget>[
             ClipPath(
               child: Container(
-                color: Colors.blue,
+                color:Color(0xff3C7FF4),
                 height: MediaQuery.of(context).size.height*0.40,
                 width: MediaQuery.of(context).size.width,
               ),
@@ -49,13 +49,13 @@ class WavyHeaderImageState extends State<WavyHeaderImage> {
               top: 70.0,
               height:MediaQuery.of(context).size.height*0.08 ,
               width: MediaQuery.of(context).size.width*0.75,
-              child: Container(padding: EdgeInsets.all(10.0),alignment: Alignment.center,
+              child: Container(
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.all(Radius.circular(8.0)),
                     color: Colors.white),
                 child: Center(
                   child: ListTile(
-                    trailing: Icon(Icons.search, color: Colors.blue),
+                    trailing: Icon(Icons.search, color:Color(0xff3C7FF4) ),
                     title: TextField( 
                       decoration: InputDecoration(
                           hintText: 'Search here', border: InputBorder.none,),

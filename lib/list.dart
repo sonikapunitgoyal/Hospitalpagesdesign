@@ -349,7 +349,7 @@ class _ListPageState extends State<ListPage> {
           Container(
             height: 100.0,
             width: 100.0,
-            child: FloatingActionButton(
+            child: FloatingActionButton(backgroundColor: Color(0xff3C7FF4),
               onPressed: () {},
               tooltip: 'Increment',
               child: Column(
@@ -503,6 +503,7 @@ class _MyDialogState extends State<MyDialog> {
   bool changeSize1=true;
   bool changeSize2=true;
   bool changeSize3=true;
+  
 
   @override
   Widget build(BuildContext context) {
@@ -529,11 +530,16 @@ class _MyDialogState extends State<MyDialog> {
                 FlatButton(
                   child: Text(
                     'Filter by',
-                   style:changeSize2? TextStyle(fontSize: 15.0):TextStyle(fontSize: 20.0),
+                   style:changeSize2
+                   ? TextStyle(fontSize: 15.0)
+                   :TextStyle(fontSize: 20.0),
                   ),
-                  onPressed: () {setState(() {
+                  onPressed: () {
+                    setState(() {
                     changeSize2=!changeSize2;
-                  });},
+                  }
+                  );
+                  },
                 ),
                 FlatButton(
                   child: Text(
@@ -559,7 +565,9 @@ class _MyDialogState extends State<MyDialog> {
             SizedBox(
               height: 20.0,
             ),
-            RangeSlider(
+          SliderTheme(
+              data: SliderTheme.of(context).copyWith(activeTrackColor: Color(0xff4B88F3),inactiveTrackColor: Colors.grey[300],thumbColor: Color(0xff4B88F3),trackHeight: 3.0,inactiveTickMarkColor: Colors.grey[300]),
+             child:    RangeSlider(
               min: 0.0,
               max: 1000.0,
               lowerValue: _lowerValue,
@@ -576,7 +584,7 @@ class _MyDialogState extends State<MyDialog> {
                   _upperValue = newUpperValue;
                 });
               },
-            ),
+            ),),
             Text(
               'Nurse Type',
               style: TextStyle(
@@ -768,9 +776,13 @@ class _MyDialogState extends State<MyDialog> {
             SizedBox(
               height: 20.0,
             ),
-            SliderTheme(
-              data: SliderTheme.of(context).copyWith(),
-              child: RangeSlider(
+           
+             SliderTheme(
+              data: SliderTheme.of(context).copyWith(valueIndicatorColor:Color(0xff3C7FF4) ,
+         
+              
+               activeTrackColor: Color(0xff3C7FF4),inactiveTrackColor: Colors.grey[300],thumbColor: Color(0xff4B88F3),trackHeight: 3.0,inactiveTickMarkColor: Colors.grey[300]),
+             child: RangeSlider(
                 min: 0,
                 max: 10,
                 lowerValue: _lowerAge,
@@ -788,7 +800,7 @@ class _MyDialogState extends State<MyDialog> {
                   });
                 },
               ),
-            )
+             )
           ],
         ),
       ),

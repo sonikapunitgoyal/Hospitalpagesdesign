@@ -8,7 +8,8 @@ void main() => runApp(MyApp());
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    FlutterStatusbarcolor.setStatusBarColor(Colors.blue);
+    FlutterStatusbarcolor.setStatusBarColor(Color(0xff3C7FF4));
+    
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Wavy image mask',
@@ -43,7 +44,7 @@ class _MyHomePageState extends State<MyHomePage> {
             children: <Widget>[
                Container(height: 100.0,width: 100.0,
                  child: FloatingActionButton(
-                    onPressed: () {},
+                    onPressed: () {},backgroundColor: Color(0xff3C7FF4),
                     tooltip: 'Increment',
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.center,
