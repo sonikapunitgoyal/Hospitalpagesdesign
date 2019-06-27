@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'clippath.dart';
 import 'package:flutter_statusbarcolor/flutter_statusbarcolor.dart';
+import 'package:responsive_container/responsive_container.dart';
 
 void main() => runApp(MyApp());
 
@@ -35,14 +36,14 @@ class _MyHomePageState extends State<MyHomePage> {
             width: MediaQuery.of(context).size.width,
             child: WavyHeaderImage()),
         bottomNavigationBar: BottomAppBar(
-            child: Container(
-          height: 90.0,
-          width: MediaQuery.of(context).size.width,
+            child: ResponsiveContainer(
+        heightPercent: 12.0,widthPercent: double.infinity,
           child: Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
-               Container(height: 100.0,width: 100.0,
+               ResponsiveContainer(
+        heightPercent:30.0,widthPercent:30.0,alignment: new Alignment(0.0, -2),
                  child: FloatingActionButton(
                     onPressed: () {},backgroundColor: Color(0xff3C7FF4),
                     tooltip: 'Increment',
@@ -52,7 +53,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       children: <Widget>[
                         Image.asset(
                           'assets/home.png',
-                          height: 50.0,
+                          height: 25.0,
                         ),
                         Text(
                           "Home",
@@ -71,7 +72,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   children: <Widget>[
                     Image.asset(
                       'assets/start.png',
-                      height: 40.0,
+                      height: 25.0,
                     ),
                     Text('Favorites', style: TextStyle(color: Colors.grey[600])),
                   ],
@@ -81,7 +82,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 padding: const EdgeInsets.all(15.0),
                 child: Column(
                   children: <Widget>[
-                    Image.asset('assets/reports.png', height: 40.0),
+                    Image.asset('assets/reports.png', height: 25.0),
                     Text('Reports', style: TextStyle(color: Colors.grey[600]))
                   ],
                 ),
@@ -90,7 +91,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 padding: const EdgeInsets.all(15.0),
                 child: Column(
                   children: <Widget>[
-                    Image.asset('assets/patients.png', height: 40.0),
+                    Image.asset('assets/patients.png', height: 25.0),
                     Text(
                       'Patients',
                       style: TextStyle(color: Colors.grey[600]),

@@ -2,15 +2,19 @@ import 'basic.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_range_slider/flutter_range_slider.dart';
 import 'package:flutter_statusbarcolor/flutter_statusbarcolor.dart';
+import 'package:responsive_container/responsive_container.dart';
 
 class MyApp1 extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    FlutterStatusbarcolor.setStatusBarColor(Colors.grey[100]);
+ FlutterStatusbarcolor.setStatusBarColor(Colors.grey[100]);
+    
     return new MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
+
+
       theme: new ThemeData(
           backgroundColor: Colors.grey[50], fontFamily: 'Raleway'),
       home: new ListPage(title: 'Lessons'),
@@ -39,14 +43,16 @@ class _ListPageState extends State<ListPage> {
 
   @override
   Widget build(BuildContext context) {
+    final height=MediaQuery.of(context).size.height;
+    final width=MediaQuery.of(context).size.width;
     Widget makeListTile(Basic lesson) => Column(children: <Widget>[
           Row(
             children: <Widget>[
               Expanded(
                   flex: 2,
                   child: Container(
-                    height: 160.0,
-                    width: 270.0,
+                    height: height*0.21,
+                    width: width*0.20,
                     decoration: BoxDecoration(
                         // borderRadius: BorderRadius.circular(15.0),
                         image: DecorationImage(
@@ -56,12 +62,12 @@ class _ListPageState extends State<ListPage> {
                     child: Stack(
                       children: <Widget>[
                         Positioned(
-                          left: 10.0,
-                          bottom: 10.0,
+                          left:8.0,
+                          bottom:8.0,
                           child: Image.asset(
                             "assets/play-button.png",
-                            width: 40.0,
-                            height: 40.0,
+                            width: 20.0,
+                            height: 20.0,
                           ),
                         ),
                       ],
@@ -69,16 +75,15 @@ class _ListPageState extends State<ListPage> {
                   )),
               Expanded(
                   flex: 3,
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisAlignment: MainAxisAlignment.start,
+                  child: Wrap(
+                 
                     children: <Widget>[
                       Row(
                         mainAxisSize: MainAxisSize.max,
                         children: <Widget>[
                           Padding(
                             padding: const EdgeInsets.only(
-                                left: 10.0, top: 10.0, right: 10.0),
+                                left: 8.0,  right: 10.0),
                             child: Container(
                               // alignment: Alignment.bottomCenter,
                               width: 10.0,
@@ -91,11 +96,11 @@ class _ListPageState extends State<ListPage> {
                           ),
                           Expanded(
                             child: Container(
-                              padding: EdgeInsets.only(top: 10.0, right: 0.0),
+                      
                               child: Text(
                                 lesson.name,
                                 style: TextStyle(
-                                    fontSize: 18.0,
+                                    fontSize: 17.0,
                                     color: Colors.black,
                                     fontWeight: FontWeight.bold),
                               ),
@@ -103,7 +108,7 @@ class _ListPageState extends State<ListPage> {
                           ),
                           Container(
                               padding: new EdgeInsets.only(
-                                top: 8.0,
+                               
                                 right: 2.0,
                               ),
                               child: Image.asset(
@@ -125,7 +130,7 @@ class _ListPageState extends State<ListPage> {
                             ),
                             Text(
                               lesson.startPrice.toString() + '-',
-                              style: TextStyle(fontWeight: FontWeight.bold),
+                             
                             ),
                             Image.asset(
                               'assets/rupee.png',
@@ -133,10 +138,10 @@ class _ListPageState extends State<ListPage> {
                             ),
                             Text(
                               lesson.endPrice.toString(),
-                              style: TextStyle(fontWeight: FontWeight.bold),
+                             
                             ),
                             Text(' per visit',
-                                style: TextStyle(fontWeight: FontWeight.bold)),
+                            )
                           ],
                         ),
                       ),
@@ -148,25 +153,25 @@ class _ListPageState extends State<ListPage> {
                         child: Row(
                           children: <Widget>[
                             Icon(
-                              Icons.star,
-                              color: Colors.yellow[700],
+                              Icons.star,size: 13.0,
+                              color: Colors.yellow[800],
                             ),
                             Icon(
-                              Icons.star,
-                              color: Colors.yellow[700],
+                              Icons.star,size: 13.0,
+                              color: Colors.yellow[800],
                             ),
                             Icon(
-                              Icons.star,
-                              color: Colors.yellow[700],
+                              Icons.star,size: 13.0,
+                              color: Colors.yellow[800],
                             ),
                             Icon(
-                              Icons.star,
-                              color: Colors.yellow[700],
+                              Icons.star,size: 13.0,
+                              color: Colors.yellow[800],
                             ),
                             Text(
                               ' [5.0] 13 reviews',
                               style: TextStyle(
-                                fontSize: 10.0,
+                                fontSize: 9.0,
                               ),
                             ),
                           ],
@@ -182,7 +187,7 @@ class _ListPageState extends State<ListPage> {
                             Icon(
                               Icons.location_on,
                               color: Colors.grey,
-                              size: 15.0,
+                              size: 12.0,
                             ),
                             Padding(
                               padding: const EdgeInsets.all(4.0),
@@ -190,7 +195,7 @@ class _ListPageState extends State<ListPage> {
                                 lesson.distance.toString() + " km away ",
                                 style: TextStyle(
                                   color: Colors.black,
-                                  fontSize: 12.0,
+                                  fontSize: 12.0,fontWeight: FontWeight.w600,
                                 ),
                               ),
                             ),
@@ -200,7 +205,7 @@ class _ListPageState extends State<ListPage> {
                             ),
                             Text(
                               lesson.experence.toString() + "yrs exp.",
-                              style: TextStyle(
+                              style: TextStyle(fontWeight: FontWeight.w600,
                                   color: Colors.black, fontSize: 12.0),
                             ),
                           ],
@@ -213,15 +218,15 @@ class _ListPageState extends State<ListPage> {
                         padding: const EdgeInsets.only(left: 20.0),
                         child: Row(
                           children: <Widget>[
-                            Image.asset('assets/doctor-bag.png', height: 10.0),
+                            Image.asset('assets/doctor-bag.png', height: 11.0),
                             Padding(
                               padding: const EdgeInsets.all(4.0),
                               child: Text(
                                 'Worked with ' +
                                     lesson.doctor.toString() +
-                                    ' doctor',
-                                style: TextStyle(
-                                    color: Colors.black, fontSize: 12.0),
+                                    ' doctors',
+                                style: TextStyle(fontWeight: FontWeight.w600,
+                                    color: Colors.black, fontSize: 10.0),
                               ),
                             ),
                           ],
@@ -237,15 +242,15 @@ class _ListPageState extends State<ListPage> {
                             Icon(
                               Icons.school,
                               color: Colors.grey,
-                              size: 15.0,
+                              size: 12.0,
                             ),
                             Padding(
                               padding: const EdgeInsets.all(4.0),
                               child: Text(
                                 lesson.specialization,
-                                style: TextStyle(
+                                style: TextStyle(fontWeight: FontWeight.w600,
                                   color: Colors.black,
-                                  fontSize: 12.0,
+                                  fontSize: 10.0,
                                 ),
                               ),
                             ),
@@ -260,12 +265,12 @@ class _ListPageState extends State<ListPage> {
             children: <Widget>[
               Expanded(
                 flex: 1,
-                child: Container(height: 50.0,
+                child: Container(height:  height*0.075,
                   child: FlatButton(
                     child: ListTile(
                       leading: Image.asset(
                         "assets/call.png",
-                       height: 30.0,
+                       height: height*0.05,
                       ),
                       trailing: Text('Hire Me'),
                     ),
@@ -276,7 +281,7 @@ class _ListPageState extends State<ListPage> {
               ),
               Expanded(
                 flex: 1,
-                child: Container(height: 50.0,
+                child: Container(height: height*0.075,
                   child: FlatButton(
                     child: Text('View Profile'),
                     onPressed: () {},
@@ -290,7 +295,7 @@ class _ListPageState extends State<ListPage> {
         ]);
 
     Card makeCard(Basic lesson) => Card(
-          margin: new EdgeInsets.symmetric(horizontal: 35.0, vertical: 15.0),
+          margin: new EdgeInsets.symmetric(horizontal: 30.0, vertical: 10.0),
           child: Container(
             decoration: BoxDecoration(color: Colors.white),
             child: makeListTile(lesson),
@@ -332,80 +337,82 @@ class _ListPageState extends State<ListPage> {
             shrinkWrap: true,
             itemCount: lessons.length,
             itemBuilder: (BuildContext context, int index) {
-              return Container(height: 243.0, child: makeCard(lessons[index]));
+              return Container(height: height*0.315, child: makeCard(lessons[index]));
             },
           ),
         ),
       )
     ]);
 
-    final makeBottom = BottomAppBar(
-        child: Container(
-      height: 90,
-      width: MediaQuery.of(context).size.width,
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: <Widget>[
-          Container(
-            height: 100.0,
-            width: 100.0,
-            child: FloatingActionButton(backgroundColor: Color(0xff3C7FF4),
-              onPressed: () {},
-              tooltip: 'Increment',
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: <Widget>[
-                  Image.asset(
-                    'assets/home.png',
-                    height: 50.0,
+    final makeBottom =  BottomAppBar(
+            child: ResponsiveContainer(
+        heightPercent: 12.0,widthPercent: double.infinity,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: <Widget>[
+               ResponsiveContainer(
+        heightPercent:30.0,widthPercent:25.0,alignment: new Alignment(0.0, -2),
+                 child: FloatingActionButton(
+                    onPressed: () {},backgroundColor: Color(0xff3C7FF4),
+                    tooltip: 'Increment',
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: <Widget>[
+                        Image.asset(
+                          'assets/home.png',
+                          height: 25.0,
+                        ),
+                        Text(
+                          "Home",
+                          style: TextStyle(
+                              fontSize: 12.0,
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold),
+                        )
+                      ],
+                    ),
                   ),
-                  Text(
-                    "Home",
-                    style: TextStyle(
-                        fontSize: 12.0,
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold),
-                  )
-                ],
-              ),
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(15.0),
-            child: Column(
-              children: <Widget>[
-                Image.asset(
-                  'assets/start.png',
-                  height: 40.0,
+               ),
+              
+              Padding(padding: const EdgeInsets.all(15.0),
+                              child: Column(
+                  children: <Widget>[
+                    Image.asset(
+                      'assets/start.png',
+                      height: 25.0,
+                    ),
+                    Text('Favorites', style: TextStyle(color: Colors.grey[600])),
+                  ],
                 ),
-                Text('Favorites'),
-              ],
-            ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(15.0),
+                child: Column(
+                  children: <Widget>[
+                    Image.asset('assets/reports.png', height: 25.0),
+                    Text('Reports', style: TextStyle(color: Colors.grey[600]))
+                  ],
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(15.0),
+                child: Column(
+                  children: <Widget>[
+                    Image.asset('assets/patients.png', height: 25.0),
+                    Text(
+                      'Patients',
+                      style: TextStyle(color: Colors.grey[600]),
+                    )
+                  ],
+                ),
+              )
+            ],
           ),
-          Padding(
-            padding: const EdgeInsets.all(15.0),
-            child: Column(
-              children: <Widget>[
-                Image.asset('assets/reports.png', height: 40.0),
-                Text('Reports')
-              ],
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.all(15.0),
-            child: Column(
-              children: <Widget>[
-                Image.asset('assets/patients.png', height: 40.0),
-                Text('Patients')
-              ],
-            ),
-          )
-        ],
-      ),
-    ));
+        ));
 
-    return Scaffold(
+    return Scaffold(   
       backgroundColor: Colors.grey[100],
       body: makeBody,
       bottomNavigationBar: makeBottom,
@@ -422,7 +429,7 @@ List getLessons() {
         image: "assets/1.png",
         distance: 1.3,
         experence: 3.5,
-        specialization: "specialization1",
+        specialization: "Specialization1",
         doctor: 13),
     Basic(
         name: "Bhumi Jain",
@@ -431,7 +438,7 @@ List getLessons() {
         image: "assets/2.png",
         distance: 1.3,
         experence: 3.5,
-        specialization: "specialization1",
+        specialization: "Specialization1",
         doctor: 13),
     Basic(
         name: "Anamika Khanna",
@@ -440,7 +447,7 @@ List getLessons() {
         image: "assets/3.png",
         distance: 1.3,
         experence: 3.5,
-        specialization: "specialization1",
+        specialization: "Specialization1",
         doctor: 13),
     Basic(
         name: "Anjali Tiwari",
@@ -449,7 +456,7 @@ List getLessons() {
         image: "assets/1.png",
         distance: 1.3,
         experence: 3.5,
-        specialization: "specialization1",
+        specialization: "Specialization1",
         doctor: 13),
     Basic(
         name: "Sonika Goyal",
@@ -458,7 +465,7 @@ List getLessons() {
         image: "assets/2.png",
         distance: 1.3,
         experence: 3.5,
-        specialization: "specialization1",
+        specialization: "Specialization1",
         doctor: 13),
     Basic(
         name: "Jyoti Sharma",
@@ -467,7 +474,7 @@ List getLessons() {
         image: "assets/3.png",
         distance: 1.3,
         experence: 3.5,
-        specialization: "specialization1",
+        specialization: "Specialization1",
         doctor: 13),
     Basic(
         name: "Shivani Kalra",
@@ -476,7 +483,7 @@ List getLessons() {
         image: "assets/1.png",
         distance: 1.3,
         experence: 3.5,
-        specialization: "specialization1",
+        specialization: "Specialization1",
         doctor: 13),
   ];
 }

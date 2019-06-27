@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 // import 'package:path/path.dart';
 // import 'nurse.dart';
+import 'package:responsive_container/responsive_container.dart';
 import 'list.dart';
 
 
@@ -12,10 +13,10 @@ class WavyHeaderImage extends StatefulWidget {
 }
 
 class WavyHeaderImageState extends State<WavyHeaderImage> {
+ 
   List<String> images = [
     'nurse.png',
     'hospital.png',
-  
   ];
 
   List<String> image = [
@@ -26,76 +27,93 @@ class WavyHeaderImageState extends State<WavyHeaderImage> {
   String filename;
   @override
   Widget build(BuildContext context) {
-    return Column(
+    final height=MediaQuery.of(context).size.height;
+        final width=MediaQuery.of(context).size.height;
+    return SingleChildScrollView(
+        child: Column(
       children: <Widget>[
-        Stack(
+        Stack(overflow: Overflow.visible,
           children: <Widget>[
             ClipPath(
               child: Container(
-                color:Color(0xff3C7FF4),
-                height: MediaQuery.of(context).size.height*0.40,
-                width: MediaQuery.of(context).size.width,
+                color: Color(0xff3C7FF4),
+                height: MediaQuery.of(context).size.height * 0.40,
+                width: width,
               ),
               clipper: BottomWaveClipper(),
             ),
             Positioned(
-              left: 30.0,
-              top: 70.0,
-              child: Image.asset('assets/hamburger.png',height:30.0 ,width: 30.0,),
+              left: height * 0.04,
+              top: height * 0.08,
+              child: Image.asset(
+                'assets/hamburger.png',
+                height: 30.0,
+                width: 30.0,
+              ),
               height: 60.0,
             ),
             Positioned(
-              left: 90.0,
-              top: 70.0,
-              height:MediaQuery.of(context).size.height*0.08 ,
-              width: MediaQuery.of(context).size.width*0.75,
+              left: height * 0.11,
+              top:height * 0.09,
+              height: height * 0.07,
+              width:width * 0.45,
               child: Container(
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.all(Radius.circular(8.0)),
                     color: Colors.white),
                 child: Center(
                   child: ListTile(
-                    trailing: Icon(Icons.search, color:Color(0xff3C7FF4) ),
-                    title: TextField( 
+                    trailing: Icon(Icons.search, color: Color(0xff3C7FF4)),
+                    title: TextField(
                       decoration: InputDecoration(
-                          hintText: 'Search here', border: InputBorder.none,),
+                        hintText: 'Search here',
+                        border: InputBorder.none,
+                      ),
                     ),
                   ),
                 ),
               ),
             ),
-           Padding(
-             padding: const EdgeInsets.only(top: 150.0,left: 30.0,right: 30.0,bottom: 30.0),
-             child: Container(
-                 
-                  width: MediaQuery.of(context).size.width*0.40,
-                  height: MediaQuery.of(context).size.height*0.27,
-                  child: InkWell(onTap: (){ Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => MyApp1()),
-                  );},
+             Positioned(
+              
+                top: height*0.22,left:width* 0.05,
+                
+              child: ResponsiveContainer(
+
+                 heightPercent:28.0 ,
+                 widthPercent: 40.0,
+                  child: InkWell(
+                      onTap: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) => MyApp1()),
+                        );
+                      },
                       child: Card(
-                    elevation: 5.0,
-                    color: Colors.white,
-                    child: Column(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: <Widget>[
-                        Image.asset("assets/nurse.png",
-                            height: 100.0, width: 100.0),
-                        Text(
-                          'Nurses',
-                          textAlign: TextAlign.center,
-                          style: TextStyle(fontSize: 20.0),
+                        elevation: 5.0,
+                        color: Colors.white,
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: <Widget>[
+                            Image.asset("assets/nurse.png",
+                                height: 100.0, width: 100.0),
+                            Text(
+                              'Nurses',
+                              textAlign: TextAlign.center,
+                              style: TextStyle(fontSize: 20.0),
+                            ),
+                          ],
                         ),
-                      ],
-                    ),
-                  ))),
-           ),
-            Padding(
-              padding: const EdgeInsets.only(top: 150.0,left: 220.0,right: 30.0,bottom: 30.0),
-              child: Container(
-                 width: MediaQuery.of(context).size.width*0.40,
-                  height: MediaQuery.of(context).size.height*0.27,
+                      ))),
+            ),
+             Positioned(
+              
+                top: height*0.53,right:width* 0.05,
+                
+              child: ResponsiveContainer(
+
+                 heightPercent:28.0 ,
+                 widthPercent: 40.0,
                   child: Container(
                     child: Card(
                       elevation: 5.0,
@@ -118,12 +136,15 @@ class WavyHeaderImageState extends State<WavyHeaderImage> {
                     ),
                   )),
             ),
-             Padding(
-               padding:const EdgeInsets.only(top: 340.0,left: 07.0,right: 30.0,),
-               child: Container(
-                width: MediaQuery.of(context).size.width*0.54,
-                  height: MediaQuery.of(context).size.height*0.35,
-                padding: EdgeInsets.all(30.0),
+            Positioned(
+              
+                top: height*0.53,left:width* 0.05,
+                
+            child: ResponsiveContainer(
+
+                 heightPercent:28.0 ,
+                 widthPercent: 40.0,
+               
                 child: Card(
                   elevation: 5.0,
                   color: Colors.white,
@@ -143,13 +164,16 @@ class WavyHeaderImageState extends State<WavyHeaderImage> {
                     ],
                   ),
                 ),
+              ),
             ),
-             ),
-            Padding(
-              padding: const EdgeInsets.only(top: 370.0,left: 220.0,right: 30.0,),
-              child: Container(
-                 width: MediaQuery.of(context).size.width*0.40,
-                  height: MediaQuery.of(context).size.height*0.26,
+            Positioned(
+              
+                top: height*0.22,right:width* 0.05,
+                
+             child: ResponsiveContainer(
+
+                 heightPercent:28.0 ,
+                 widthPercent: 40.0,
                 child: Card(
                   elevation: 5.0,
                   color: Colors.white,
@@ -173,10 +197,8 @@ class WavyHeaderImageState extends State<WavyHeaderImage> {
             )
           ],
         ),
-        
-        
       ],
-    );
+    ));
   }
 }
 
